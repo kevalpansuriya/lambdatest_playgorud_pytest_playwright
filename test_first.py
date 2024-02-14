@@ -1,6 +1,6 @@
 from playwright.sync_api import Page, expect
 
-lambdatest_playgroud_url = "https://www.lambdatest.com/selenium-playground/"
+LAMBDATEST_PLAYGROUD_URL = "https://www.lambdatest.com/selenium-playground/"
 
 
 def navigate_to_lambdatest_base_url(page):
@@ -9,8 +9,8 @@ def navigate_to_lambdatest_base_url(page):
     :param page:
     :return: None
     """
-    page.goto(lambdatest_playgroud_url)
-    page.wait_for_url(lambdatest_playgroud_url)
+    page.goto(LAMBDATEST_PLAYGROUD_URL)
+    page.wait_for_url(LAMBDATEST_PLAYGROUD_URL)
 
 
 def test_verify_simple_form_demo(page: Page):
@@ -25,7 +25,7 @@ def test_verify_simple_form_demo(page: Page):
     """
     navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Simple Form Demo')").click()
-    page.wait_for_url(f"{lambdatest_playgroud_url}simple-form-demo")
+    page.wait_for_url(f"{LAMBDATEST_PLAYGROUD_URL}simple-form-demo")
     msg = "Welcome to LambdaTest."
     page.locator("input[placeholder='Please enter your Message']").fill(msg)
     page.locator("button:has-text('Get Checked Value')").click()
@@ -43,7 +43,7 @@ def test_verify_drag_drop_range_sliders_demo(page: Page):
     """
     navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Drag & Drop Sliders')").click()
-    page.wait_for_url(f"{lambdatest_playgroud_url}drag-drop-range-sliders-demo")
+    page.wait_for_url(f"{LAMBDATEST_PLAYGROUD_URL}drag-drop-range-sliders-demo")
     slider = page.locator('input[value="15"]')
     slider.click()
     value = page.locator('input[value="15"] + output').inner_text()
@@ -65,7 +65,7 @@ def test_verify_input_form_submit(page: Page):
     """
     navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Input Form Submit')").click()
-    page.wait_for_url(f"{lambdatest_playgroud_url}input-form-demo")
+    page.wait_for_url(f"{LAMBDATEST_PLAYGROUD_URL}input-form-demo")
     page.locator("button:has-text('Submit')").click()
     # error_msg = 'Please fill out this field.'
     # expect(page.locator(f":has-text('{error_msg}')")).to_have_text(error_msg)
