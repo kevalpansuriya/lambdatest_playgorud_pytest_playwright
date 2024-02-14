@@ -10,8 +10,11 @@ def navigate_to_lambdatest_base_url(page):
 
 def test_verify_simple_form_demo(page: Page):
     """
-    navigating to selenium-playground > click on the simple Form Demo > entering a msg
-    > click on Get Checked Value button > verify a msg
+    navigating to selenium-playground
+        > click on the simple Form Demo
+        > entering a msg
+        > click on Get Checked Value button
+        > verify a msg
     :param page:
     :return:
     """
@@ -26,8 +29,10 @@ def test_verify_simple_form_demo(page: Page):
 
 def test_verify_drag_drop_range_sliders_demo(page: Page):
     """
-    navigating to selenium-playground > click on the drag-drop-range-sliders-demo > clicking on a slider
-    > press ArrowRight key until slider value become 95
+    navigating to selenium-playground
+        > click on the drag-drop-range-sliders-demo
+        > clicking on a slider
+        > press ArrowRight key until slider value become 95
     :param page:
     :return:
     """
@@ -45,8 +50,11 @@ def test_verify_drag_drop_range_sliders_demo(page: Page):
 
 def test_verify_input_form_submit(page: Page):
     """
-    navigating to selenium-playground > click on the Input Form Submit > filling the form detail
-    > click on submit button > verify success msg.
+    navigating to selenium-playground
+        > click on the Input Form Submit
+        > filling the form detail
+        > click on submit button
+        > verify success msg.
     :param page:
     :return:
     """
