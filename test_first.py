@@ -1,5 +1,12 @@
 from playwright.sync_api import Page, expect
 
+lambdatest_playgroud_url = "https://www.lambdatest.com/selenium-playground/"
+
+
+def navigate_to_lambdatest_base_url(page):
+    page.goto(lambdatest_playgroud_url)
+    page.wait_for_url(lambdatest_playgroud_url)
+
 
 def test_verify_simple_form_demo(page: Page):
     """
@@ -8,10 +15,9 @@ def test_verify_simple_form_demo(page: Page):
     :param page:
     :return:
     """
-    page.goto("https://www.lambdatest.com/selenium-playground/")
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/")
+    navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Simple Form Demo')").click()
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/simple-form-demo")
+    page.wait_for_url(f"{lambdatest_playgroud_url}simple-form-demo")
     msg = "Welcome to LambdaTest."
     page.locator("input[placeholder='Please enter your Message']").fill(msg)
     page.locator("button:has-text('Get Checked Value')").click()
@@ -25,17 +31,16 @@ def test_verify_drag_drop_range_sliders_demo(page: Page):
     :param page:
     :return:
     """
-    page.goto("https://www.lambdatest.com/selenium-playground/")
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/")
+    navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Drag & Drop Sliders')").click()
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/drag-drop-range-sliders-demo")
+    page.wait_for_url(f"{lambdatest_playgroud_url}drag-drop-range-sliders-demo")
     slider = page.locator('input[value="15"]')
     slider.click()
-    value = slider = page.locator('input[value="15"] + output').inner_text()
+    value = page.locator('input[value="15"] + output').inner_text()
     print(value)
     while value != "95":
         page.keyboard.press('ArrowRight')
-        value = slider = page.locator('input[value="15"] + output').inner_text()
+        value = page.locator('input[value="15"] + output').inner_text()
 
 
 def test_verify_input_form_submit(page: Page):
@@ -45,12 +50,11 @@ def test_verify_input_form_submit(page: Page):
     :param page:
     :return:
     """
-    page.goto("https://www.lambdatest.com/selenium-playground/")
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/")
+    navigate_to_lambdatest_base_url(page)
     page.locator("a:has-text('Input Form Submit')").click()
-    page.wait_for_url("https://www.lambdatest.com/selenium-playground/input-form-demo")
+    page.wait_for_url(f"{lambdatest_playgroud_url}input-form-demo")
     page.locator("button:has-text('Submit')").click()
-    error_msg = 'Please fill out this field.'
+    # error_msg = 'Please fill out this field.'
     # expect(page.locator(f":has-text('{error_msg}')")).to_have_text(error_msg)
     page.locator('[id="name"]').fill("keval")
     page.locator('[id="inputEmail4"]').fill("kevalpansuriya@gmail.com")
