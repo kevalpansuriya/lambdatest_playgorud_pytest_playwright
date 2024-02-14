@@ -4,6 +4,11 @@ lambdatest_playgroud_url = "https://www.lambdatest.com/selenium-playground/"
 
 
 def navigate_to_lambdatest_base_url(page):
+    """
+    Navigate to lambda test playground
+    :param page:
+    :return: None
+    """
     page.goto(lambdatest_playgroud_url)
     page.wait_for_url(lambdatest_playgroud_url)
 
