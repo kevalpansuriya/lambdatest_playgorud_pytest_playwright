@@ -1,3 +1,7 @@
+"""
+Automated three lambda test playground use case in python playwright
+"""
+
 from playwright.sync_api import Page, expect
 
 LAMBDATEST_PLAYGROUD_URL = "https://www.lambdatest.com/selenium-playground/"
